@@ -13,6 +13,7 @@ The process of building DPDK varies depending on the operating system you're usi
     linux_install_build
     freebsd_install_build
     windows_install_build
+    linux_freebsd_install_build
 
 **Linux**
 
