@@ -15,3 +15,4 @@ Getting Started Guide
     install_and_build/index
     drivers/index
     run_apps/index
+    advanced_topics/index
