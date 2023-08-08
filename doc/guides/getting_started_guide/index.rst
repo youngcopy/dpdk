@@ -13,6 +13,6 @@ Getting Started Guide
     intro
     sys_reqs/index
     install_and_build/index
-    drivers/index
+    device_setup/index
     run_apps/index
-    advanced_topics/index
+    appendix/index

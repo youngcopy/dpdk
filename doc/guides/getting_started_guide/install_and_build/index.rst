@@ -9,6 +9,8 @@ Install and Build DPDK
 .. toctree::
     :maxdepth: 2
 
-    linux_freebsd_install_build
-    dpdk_meson_build_options
-    dpdk_module_loading
+    
+    specific_commands_for_distributions
+    building_from_sources
+    cross_compilation/index
+    windows_install_build

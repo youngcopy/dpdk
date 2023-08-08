@@ -5,9 +5,9 @@
 
 .. include:: <isonum.txt>
 
-.. _linux_gsg_linux_drivers:
+.. _linux_modules:
 
-Linux Drivers
+Linux Modules
 =============
 
 Different PMDs may require different kernel drivers in order to work properly.
@@ -32,14 +32,18 @@ Binding and Unbinding Network Ports to/from the Kernel Modules
    If, for some reason, vfio is unavailable, then UIO-based modules, ``igb_uio`` and ``uio_pci_generic`` may be used.
    See section :ref:`uio` for details.
 
-Most devices require that the hardware to be used by DPDK be unbound from the kernel driver it uses,
+Most devices require that the hardware to be used by DPDK be unbound from the kernel
+module it uses,
 and instead be bound to the ``vfio-pci`` kernel module before the application is run.
-For such PMDs, any network ports or other hardware under Linux* control will be ignored and cannot be used by the application.
+For such PMDs, any network ports or other hardware under Linux* control will be
+ignored and cannot be used by the application.
 
 To bind ports to the ``vfio-pci`` module
 for DPDK use, or to return ports to Linux control,
-a utility script called ``dpdk-devbind.py`` is provided in the ``usertools`` subdirectory.
-This utility can be used to provide a view of the current state of the network ports on the system,
+a utility script called ``dpdk-devbind.py`` is provided in the ``usertools``
+subdirectory.
+This utility can be used to provide a view of the current state of the network ports
+on the system,
 and to bind and unbind those ports from the different kernel modules,
 including the VFIO and UIO modules.
 The following are some examples of how the script can be used.
@@ -131,7 +135,8 @@ to use IO virtualization (such as Intel\ |reg| VT-d).
    In most cases, specifying "iommu=on" as kernel parameter should be enough to
    configure the Linux kernel to use IOMMU.
 
-For proper operation of VFIO when running DPDK applications as a non-privileged user, correct permissions should also be set up.
+For proper operation of VFIO when running DPDK applications as a non-privileged user,
+correct permissions should also be set up.
 For more information, please refer to :ref:`Running_Without_Root_Privileges`.
 
 .. _vfio_noiommu:
@@ -212,7 +217,7 @@ The token will be used for all PF and VF ports within the application.
 
       sudo modprobe vfio-pci enable_sriov=1
 
-   Alternatively, pass the ``enable_sriov`` parameter through the ``sysfs`` if the module is already loaded or is built-in:
+   Alternatively, pass the ``enable_sriov`` parameter through the ``sysfs`` if the    module is already loaded or is built-in:
 
    .. code-block:: console
 
@@ -378,7 +383,8 @@ UIO
    Using UIO drivers is inherently unsafe due to this method lacking IOMMU protection,
    and can only be done by root user.
 
-In situations where using VFIO is not an option, there are alternative drivers one can use.
+In situations where using VFIO is not an option, there are alternative drivers one can
+use.
 In many cases, the standard ``uio_pci_generic`` module included in the Linux kernel
 can be used as a substitute for VFIO. This module can be loaded using the command:
 
@@ -419,5 +425,3 @@ It can be loaded as shown below:
    One can add ``intel_iommu=off`` or ``amd_iommu=off`` or ``intel_iommu=on iommu=pt``
    in GRUB command line on x86_64 systems,
    or add ``iommu.passthrough=1`` on aarch64 systems.
-
-

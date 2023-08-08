@@ -6,18 +6,23 @@
 Windows DPDK Build
 ==================
 
-Before you begin the process of building DPDK on Windows, make sure your system meets all the necessary requirements as outlined in the :doc:`Windows System Requirements <../sys_reqs/windows_sys_req>` page. 
+Before you begin the process of building DPDK on Windows, 
+make sure your system meets all the necessary requirements as outlined in the 
+:ref:`Windows System Requirements <windows_sys_req>` page. 
 
-Once you have verified that your system meets these requirements, you can proceed with the following steps to build DPDK.
+Once you have verified that your system meets these requirements, 
+you can proceed with the following steps to build DPDK.
 
 Build the Code
 --------------
 
-The build environment is setup to build the EAL and the helloworld example by default. To compile the examples, the flag -Dexamples is required.
+The build environment is setup to build the EAL and the helloworld example by default.
+To compile the examples, the flag -Dexamples is required.
 
 **Option 1. Native Build on Windows**
 
-When using Clang-LLVM, specifying the compiler might be required to complete the meson command::
+When using Clang-LLVM, specifying the compiler might be required to complete the meson
+command::
 
         set CC=clang
 
@@ -33,7 +38,8 @@ To compile the examples::
 
 **Option 2. Cross-Compile with MinGW-w64**
 
-The cross-file option must be specified for Meson. Depending on the distribution, paths in this file may need adjustments::
+The cross-file option must be specified for Meson. 
+Depending on the distribution, paths in this file may need adjustments::
 
         meson --cross-file config/x86/cross-mingw -Dexamples=helloworld build
         ninja -C build
