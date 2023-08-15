@@ -1,5 +1,5 @@
 ..  SPDX-License-Identifier: BSD-3-Clause
-    Copyright(c) 2010-2015 Intel Corporation.
+    Copyright(c) 2010-2025 Intel Corporation.
 
 .. _getting_started_guide:
 
@@ -11,8 +11,7 @@ Getting Started Guide
     :numbered:
 
     intro
-    sys_reqs/index
     install_and_build/index
-    device_setup/index
+    system_setup/index
     run_apps/index
     appendix/index

@@ -1,49 +1,49 @@
 ..  SPDX-License-Identifier: BSD-3-Clause
     Copyright(c) 2010-2025 Intel Corporation.
 
-.. _dpdk_module_loading:
+.. _device_setup:
 
-Loading the DPDK Modules (FreeBSD)
-==================================
+.. |reg| unicode:: U+000AE
 
-This document provides instructions on how to load the DPDK `contigmem` and `nic_uio`
-modules.
+Device Setup
+============
 
-Loading the DPDK contigmem Module
----------------------------------
+Below are instructions for VFIO (Linux) and loading the contigmem module (FreeBSD).
 
-To run a DPDK application, physically contiguous memory is required. In the absence of
-non-transparent superpages, the included sources for the `contigmem` kernel module
-provides the ability to present contiguous blocks of memory for the DPDK to use. 
-The ``contigmem`` module must be loaded into the running kernel before any DPDK is run.
-Once DPDK is installed on the system, the module can be found in the ``/boot/modules``
-directory.
+VFIO
+----
 
-The amount of physically contiguous memory along with the number of physically
-contiguous blocks to be reserved by the module can be set at runtime prior to module
-loading using::
+VFIO is a robust and secure driver that relies on IOMMU protection.
+To make use of VFIO, the ``vfio-pci`` module must be loaded:
 
-    kenv hw.contigmem.num_buffers=n
-    kenv hw.contigmem.buffer_size=m
+.. code-block:: console
 
-The kernel environment variables can also be specified during boot by placing the
-following in ``/boot/loader.conf``::
+    sudo modprobe vfio-pci
 
-    hw.contigmem.num_buffers=n
-    hw.contigmem.buffer_size=m
+VFIO kernel is usually present by default in all distributions,
+however please consult your distributions documentation to make sure that is the case.
 
-The variables can be inspected using the following command::
+To make use of full VFIO functionality,
+both kernel and BIOS must support and be configured
+to use IO virtualization (such as Intel\ |reg| VT-d).
 
-    sysctl -a hw.contigmem
+.. note::
 
-The module can then be loaded using ``kldload``::
+   In most cases, specifying "iommu=on" as kernel parameter should be enough to
+   configure the Linux kernel to use IOMMU.
 
-    kldload contigmem
+For proper operation of VFIO when running DPDK applications as a non-privileged user,
+correct permissions should also be set up.
+For more information, refer to :ref:`running_dpdk_apps_without_root`.
+
+Refer to :ref:`vfio_no_iommu_mode` when there is no IOMMU available on the system.
+
+.. _loading_nic_uio_module:
 
 Loading the DPDK nic_uio Module
 -------------------------------
 
-After loading the ``contigmem`` module, the ``nic_uio`` module must also be loaded into
+After :ref:`loading_contigmem_module`, the ``nic_uio`` module must also be loaded into
 the running kernel prior to running any DPDK application, e.g. using::
 
     kldload nic_uio
@@ -67,6 +67,8 @@ The variable can also be specified during boot by placing the following into
 
     hw.nic_uio.bdfs="2:0:0,2:0:1"
     nic_uio_load="YES"
+
+.. _binding_network_ports_nic_uio:
 
 Binding Network Ports Back to their Original Kernel Driver
 ----------------------------------------------------------

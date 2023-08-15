@@ -52,7 +52,7 @@ Before executing any DPDK application, complete the following:
 - Relevant Linux modules are loaded.
 - Ports used by the application are bound to the appropriate kernel module.
 
-For more details, see :ref:`linux_sys_req` and :ref:`linux_modules`.
+For more details, see :ref:`memory_setup`.
 
 EAL Parameters
 --------------
@@ -71,4 +71,4 @@ refer to the `EAL parameters section <eal_parameters>`.
 Running Without Root Privileges
 -------------------------------
 
-TBD
+Refer to :ref:`running_dpdk_apps_without_root`.

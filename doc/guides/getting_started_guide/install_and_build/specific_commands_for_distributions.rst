@@ -25,40 +25,15 @@ Available Distributions
 Pre-built DPDK packages are available for several popular Linux distributions,
 including but not limited to:
 
-- `FreeBSD`_
-- `Ubuntu`_
-- `Fedora and Red Hat`_
 - `Alpine`_
-- `CentOS`_
+- `Debian and Ubuntu and derivatives`_
+- `Fedora and RedHat Enterprise Linux RHEL`_
+- `FreeBSD`_
 - `openSUSE`_
 
 Each distribution may offer different versions of DPDK, 
 and the installation commands may vary. Refer to the specific sections for each
 distribution to find the appropriate installation instructions.
-
-.. _FreeBSD:
-
-FreeBSD
--------
-.. code-block:: bash
-
-   sudo pkg install dpdk
-
-.. _Ubuntu:
-
-Ubuntu
-------
-.. code-block:: bash
-
-   sudo apt-get install dpdk
-
-.. _Fedora/Red Hat:
-
-Fedora and Red Hat
-------------------
-.. code-block:: bash
-
-   sudo dnf install dpdk
 
 .. _Alpine:
 
@@ -68,13 +43,29 @@ Alpine
 
    sudo apk add dpdk
 
-.. _CentOS:
+.. _Debian and Ubuntu and derivatives:
 
-CentOS
-------
+Debian, Ubuntu and derivatives
+------------------------------
 .. code-block:: bash
 
-   sudo yum install dpdk
+   sudo apt-get install dpdk
+
+.. _Fedora and RedHat Enterprise Linux RHEL:
+
+Fedora and RedHat Enterprise Linux (RHEL)
+-----------------------------------------
+.. code-block:: bash
+
+   sudo dnf install dpdk
+
+.. _FreeBSD:
+
+FreeBSD
+-------
+.. code-block:: bash
+
+   sudo pkg install dpdk
 
 .. _openSUSE:
 

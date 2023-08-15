@@ -12,3 +12,6 @@ This section covers specific guides related to DPDK.
     :maxdepth: 2
 
     dpdk_meson_build_options
+    running_dpdk_apps_without_root
+    vfio_advanced
+    cross_compile_dpdk

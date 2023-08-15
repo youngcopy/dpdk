@@ -13,7 +13,7 @@ folder.
 Changing the Build Type
 -----------------------
 
-To change the build type from the default "debugoptimized" to a regular "debug" build,
+To change the build type from the default "release" to a regular "debug" build,
 you can either:
 
 - Pass ``-Dbuildtype=debug`` or ``--buildtype=debug`` to meson when configuring the build folder initially.
