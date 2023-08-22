@@ -8,5 +8,3 @@ Running Applications
     :maxdepth: 2
 
     run_apps
-    linux_run_apps
-    windows_run_apps

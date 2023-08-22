@@ -1,17 +1,17 @@
 ..  SPDX-License-Identifier: BSD-3-Clause
     Copyright(c) 2010-2025 Intel Corporation.
 
-.. _specific_commands_for_distributions:
+.. _installing_prebuilt_packages:
 
-Specific Commands for Distributions (Pre-Built Packages)
-========================================================
+Installing Pre-built Packages
+=============================
 
 Pre-built packages provide a convenient way to install DPDK without the need to compile
 the source code manually. These packages are created and maintained by the DPDK
 community or OS vendors and are available for various operating systems and
 distributions.
 
-Why Use Pre-Built Packages?
+Why Use Pre-built Packages?
 ---------------------------
 
 - **Ease of Installation**: Pre-built packages simplify the installation process by providing ready-to-use binaries.
@@ -25,54 +25,32 @@ Available Distributions
 Pre-built DPDK packages are available for several popular Linux distributions,
 including but not limited to:
 
-- `Alpine`_
-- `Debian and Ubuntu and derivatives`_
-- `Fedora and RedHat Enterprise Linux RHEL`_
-- `FreeBSD`_
-- `openSUSE`_
+- Alpine
 
-Each distribution may offer different versions of DPDK, 
-and the installation commands may vary. Refer to the specific sections for each
-distribution to find the appropriate installation instructions.
-
-.. _Alpine:
-
-Alpine
-------
 .. code-block:: bash
 
    sudo apk add dpdk
 
-.. _Debian and Ubuntu and derivatives:
+- Debian and Ubuntu and derivatives
 
-Debian, Ubuntu and derivatives
-------------------------------
 .. code-block:: bash
 
    sudo apt-get install dpdk
 
-.. _Fedora and RedHat Enterprise Linux RHEL:
+- Fedora and RedHat Enterprise Linux RHEL
 
-Fedora and RedHat Enterprise Linux (RHEL)
------------------------------------------
 .. code-block:: bash
 
    sudo dnf install dpdk
 
-.. _FreeBSD:
+- FreeBSD
 
-FreeBSD
--------
 .. code-block:: bash
 
    sudo pkg install dpdk
 
-.. _openSUSE:
+- openSUSE
 
-openSUSE
---------
 .. code-block:: bash
 
    sudo zypper install dpdk
-
-# Additional distributions and versions can be added as needed

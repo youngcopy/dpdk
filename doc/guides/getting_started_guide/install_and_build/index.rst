@@ -10,6 +10,6 @@ Install and Build DPDK
     :maxdepth: 2
 
     
-    specific_commands_for_distributions
+    installing_prebuilt_packages
     building_from_sources
     windows_install_build

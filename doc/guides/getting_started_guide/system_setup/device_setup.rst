@@ -14,7 +14,7 @@ VFIO
 ----
 
 VFIO is a robust and secure driver that relies on IOMMU protection.
-To make use of VFIO, the ``vfio-pci`` module must be loaded:
+To make use of VFIO on Linux, the ``vfio-pci`` module must be loaded:
 
 .. code-block:: console
 
@@ -38,13 +38,33 @@ For more information, refer to :ref:`running_dpdk_apps_without_root`.
 
 Refer to :ref:`vfio_no_iommu_mode` when there is no IOMMU available on the system.
 
+Binding and Unbinding Network Ports to/from VFIO-PCI Module
+-----------------------------------------------------------
+
+To bind or unbind network ports to/from the `vfio-pci` module on Linux, follow these steps:
+
+Replace ``<module_id>`` with the appropriate module identifier.
+
+**Unbind from Current module**:
+   If a device is bound to a kernel driver, unbind it:
+
+   .. code-block:: bash
+
+      dpdk-devbind.py -u <module_id>
+
+**Bind to vfio-pci module**:
+   Bind the device to the `vfio-pci` module:
+
+   .. code-block:: bash
+
+      dpdk-devbind.py -b vfio-pci <module_id>
+
 .. _loading_nic_uio_module:
 
 Loading the DPDK nic_uio Module
 -------------------------------
 
-After :ref:`loading_contigmem_module`, the ``nic_uio`` module must also be loaded into
-the running kernel prior to running any DPDK application, e.g. using::
+After :ref:`loading_contigmem_module` on FreeBSD, the ``nic_uio`` module must also be loaded into the running kernel prior to running any DPDK application, e.g. using::
 
     kldload nic_uio
 

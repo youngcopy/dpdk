@@ -11,13 +11,11 @@ Below are instructions for hugepages support (Linux) and loading the contigmem m
 Hugepages Support
 -----------------
 
-DPDK requires the Linux kernel to support hugepages. This is typically enabled by
-default on most modern Linux distributions. To check if hugepages are enabled on your
-system, you can run the following command::
+For Linux, DPDK requires hugepages be reserved for its use on the system. To check if hugepages are are on your system, you can run the following command::
 
         grep HugePages_Total /proc/meminfo
 
-If hugepages are not enabled, you will need to enable them by following these steps:
+If hugepages are not reserved, you will need to reserve them by following these steps:
 
 1. Determine the number of hugepages you want to allocate. For example, to allocate 1024 hugepages of 2MB each, you can use the following command::
 
@@ -27,7 +25,7 @@ If hugepages are not enabled, you will need to enable them by following these st
 
         vm.nr_hugepages = 1024
 
-3. Mount the hugepages filesystem by adding the following line to your `/etc/fstab` file::
+3. Most distributions make hugepages available via `/dev/hugepages`, so this step may not be necessary. If you need to manually mount the hugepages filesystem, add the following line to your `/etc/fstab` file::
 
         nodev /mnt/huge hugetlbfs defaults 0 0
 
@@ -41,9 +39,7 @@ If hugepages are not enabled, you will need to enable them by following these st
 Loading the DPDK contigmem Module
 ---------------------------------
 
-To run a DPDK application, physically contiguous memory is required. In the absence of
-non-transparent superpages, the included sources for the `contigmem` kernel module
-provides the ability to present contiguous blocks of memory for the DPDK to use. 
+To run a DPDK application on FreeBSD, physically contiguous memory is required. In the absence of non-transparent superpages, the included sources for the `contigmem` kernel module provides the ability to present contiguous blocks of memory for the DPDK to use. 
 The ``contigmem`` module must be loaded into the running kernel before any DPDK is run.
 Once DPDK is installed on the system, the module can be found in the ``/boot/modules``
 directory.

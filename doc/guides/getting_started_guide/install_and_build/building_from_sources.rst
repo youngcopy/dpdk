@@ -38,6 +38,9 @@ For FreeBSD, these can be installed using (as root):
 
 FreeBSD also requires kernel sources, which should be included during the installation of FreeBSD on the development platform.
 
+Building DPDK
+-------------
+
 Download the DPDK source code from the official repository 
 ``https://fast.dpdk.org/rel/``.
 
@@ -60,19 +63,15 @@ Navigate to the DPDK directory:
 Configure the build based on your needs, hardware, and environment. 
 This might include setting specific flags or options. For example: “meson setup -Dbuildtype=debugoptimized build”. Then compile using “ninja” and install using “meson install”.
 
-For FreeBSD, install required ports:
-
 .. code-block:: bash
 
-    cd /usr/ports/net/dpdk
-    make install
+   ninja -C build
+   cd build
+   sudo ninja install
+
+For detailed information on Meson build configuration options specific to DPDK, see :ref:`DPDK Meson Build Configuration Options <dpdk_meson_build_options>`.
 
 Cross-Compilation Instructions for Different Architectures
 ----------------------------------------------------------
 
 For instructions on building DPDK for ARM64, LoongArch, and RISC-V, refer to :ref:`cross_compile_dpdk`.
-
-Meson Configuration Options Specific to DPDK
---------------------------------------------
-
-For detailed information on Meson build configuration options specific to DPDK, see :ref:`DPDK Meson Build Configuration Options <dpdk_meson_build_options>`.
