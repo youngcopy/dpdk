@@ -11,46 +11,44 @@ the source code manually. These packages are created and maintained by the DPDK
 community or OS vendors and are available for various operating systems and
 distributions.
 
-Why Use Pre-built Packages?
----------------------------
-
-- **Ease of Installation**: Pre-built packages simplify the installation process by providing ready-to-use binaries.
-- **Compatibility**: Packages are often tested and optimized for specific distributions, ensuring smooth integration with the system.
-- **Updates and Maintenance**: Using pre-built packages allows you to benefit from regular updates and maintenance provided by the package maintainers.
-- **Time-Saving**: Installing from a pre-built package saves time compared to building from source, especially if you need to install DPDK on multiple systems.
-
 Available Distributions
-------------------------
+-----------------------
+
+Linux
+^^^^^
 
 Pre-built DPDK packages are available for several popular Linux distributions,
 including but not limited to:
 
-- Alpine
+Alpine
 
 .. code-block:: bash
 
    sudo apk add dpdk
 
-- Debian and Ubuntu and derivatives
+Debian and Ubuntu and derivatives
 
 .. code-block:: bash
 
    sudo apt-get install dpdk
 
-- Fedora and RedHat Enterprise Linux RHEL
+Fedora and RedHat Enterprise Linux RHEL
 
 .. code-block:: bash
 
    sudo dnf install dpdk
 
-- FreeBSD
-
-.. code-block:: bash
-
-   sudo pkg install dpdk
-
-- openSUSE
+openSUSE
 
 .. code-block:: bash
 
    sudo zypper install dpdk
+
+FreeBSD
+^^^^^^^
+
+To install DPDK on FreeBSD, use the following command:
+
+.. code-block:: bash
+
+   sudo pkg install dpdk

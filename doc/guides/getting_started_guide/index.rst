@@ -12,6 +12,7 @@ Getting Started Guide
 
     intro
     install_and_build/index
-    system_setup/index
+    system_setup
     run_apps/index
     appendix/index
+    glossary

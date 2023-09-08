@@ -13,33 +13,60 @@ and considerations for different architectures and compilers.
 Required Tools
 --------------
 
-The following tools are required to build DPDK:
+To build DPDK, you'll need the following tools:
 
-- ``gcc`` (version 5+) or ``clang`` (version 3.6+)
+- A C compiler like ``gcc`` (version 5+) or ``clang`` (version 3.6+)
 - ``pkg-config`` or ``pkgconf``
 - Python 3.6 or later
 - ``meson`` (version 0.53.2+) and ``ninja``
- 
-  - To install meson, use ``pip install meson``
-  - To install ninja, use ``pip install ninja``
-
 - ``pyelftools`` (version 0.22+)
 
-For RHEL/Fedora systems, you can install these using the command 
-``dnf groupinstall "Development Tools"``. For Ubuntu/Debian systems, 
-use ``apt install build-essential``. For Alpine Linux, 
-use ``apk add alpine-sdk bsd-compat-headers``.
+Here's how to install them:
 
-For FreeBSD, these can be installed using (as root):
+Linux
+^^^^^
+
+Alpine
+
+.. code-block:: bash
+
+   sudo apk add alpine-sdk bsd-compat-headers
+   pip install meson ninja
+
+Debian and Ubuntu and derivatives
+
+.. code-block:: bash
+
+   sudo apt install build-essential
+   pip install meson ninja
+
+Fedora and RedHat Enterprise Linux RHEL
+
+.. code-block:: bash
+
+   sudo dnf groupinstall "Development Tools"
+   pip install meson ninja
+
+openSUSE
+
+.. code-block:: bash
+
+   sudo zypper install -t pattern devel_basis python3-pyelftools
+   pip install meson ninja
+
+FreeBSD
+^^^^^^^
+
+FreeBSD (as root)
 
 .. code-block:: bash
 
    pkg install meson pkgconf py38-pyelftools
 
-FreeBSD also requires kernel sources, which should be included during the installation of FreeBSD on the development platform.
+Note: If you're using FreeBSD, you'll also need kernel sources. Make sure they're included during the FreeBSD installation.
 
-Building DPDK
--------------
+Getting the DPDK Source
+-----------------------
 
 Download the DPDK source code from the official repository 
 ``https://fast.dpdk.org/rel/``.
@@ -60,6 +87,9 @@ Navigate to the DPDK directory:
 
    cd dpdk-<version>
 
+Building DPDK
+-------------
+
 Configure the build based on your needs, hardware, and environment. 
 This might include setting specific flags or options. For example: “meson setup -Dbuildtype=debugoptimized build”. Then compile using “ninja” and install using “meson install”.
 
@@ -68,6 +98,7 @@ This might include setting specific flags or options. For example: “meson setu
    ninja -C build
    cd build
    sudo ninja install
+   ldconfig
 
 For detailed information on Meson build configuration options specific to DPDK, see :ref:`DPDK Meson Build Configuration Options <dpdk_meson_build_options>`.
 

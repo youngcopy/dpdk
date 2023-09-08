@@ -6,8 +6,7 @@
 DPDK Meson Build Configuration Options
 ======================================
 
-DPDK provides a number of build configuration options that can be adjusted using the Meson build
-system. These options can be listed by running ``meson configure`` inside a configured build
+DPDK provides a number of build configuration options that can be adjusted using the Meson build system. These options can be listed by running ``meson configure`` inside a configured build
 folder.
 
 Changing the Build Type
